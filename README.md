@@ -20,7 +20,16 @@ pip install deepfastmlu
 
 If you find this library useful in your research, please consider citing:
 ```shell
-TBA
+@misc{fabprezja_2023_dfmlu,
+  author = {Fabi Prezja},
+  title = {Deep Fast Machine Learning Utils},
+  month = sept,
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/fabprezja/deep-fast-vision}},
+  doi = {10.5281/zenodo.8374468},
+  url = {https://doi.org/10.5281/zenodo.8374468}
 }
 ```
 If you used the Adaptive Variance Threshold (AVT) class, please cite the following article:
