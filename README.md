@@ -3,7 +3,7 @@
 
 Welcome to the Deep Fast Machine Learning Utils! This library is designed to streamline and expedite your machine learning prototyping process. It offers unique tools for model search and feature selection, which are not found in other ML libraries. The aim is to complement established libraries such as Tensorflow, Keras and Scikit-learn. Additionally, it provides extra tools for dataset management and visualization of training outcomes.
 
-Documentation at:
+Documentation at: https://fabprezja.github.io/deep-fast-machine-learning-utils/
 
 > **Note:** This library is in the early stages of development.
 
