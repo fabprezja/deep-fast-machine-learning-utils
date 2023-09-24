@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Fast Machine Learning Utils &mdash; deepfastmlu 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            deepfastmlu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Deep Fast Machine Learning Utils</a><ul>
+<li><a class="reference internal" href="#contents">Contents</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#module-deepfastmlu.feature_select.AdaptiveVarianceThreshold">Feature Selection Modules</a><ul>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold"><code class="docutils literal notranslate"><span class="pre">AdaptiveVarianceThreshold</span></code></a><ul>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.fit"><code class="docutils literal notranslate"><span class="pre">AdaptiveVarianceThreshold.fit()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.fit_transform"><code class="docutils literal notranslate"><span class="pre">AdaptiveVarianceThreshold.fit_transform()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.transform"><code class="docutils literal notranslate"><span class="pre">AdaptiveVarianceThreshold.transform()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS"><code class="docutils literal notranslate"><span class="pre">ChainedFS</span></code></a><ul>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS.fit"><code class="docutils literal notranslate"><span class="pre">ChainedFS.fit()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS.fit_transform"><code class="docutils literal notranslate"><span class="pre">ChainedFS.fit_transform()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS.transform"><code class="docutils literal notranslate"><span class="pre">ChainedFS.transform()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS"><code class="docutils literal notranslate"><span class="pre">RankAggregatedFS</span></code></a><ul>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.fit"><code class="docutils literal notranslate"><span class="pre">RankAggregatedFS.fit()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.fit_transform"><code class="docutils literal notranslate"><span class="pre">RankAggregatedFS.fit_transform()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.get_feature_rankings"><code class="docutils literal notranslate"><span class="pre">RankAggregatedFS.get_feature_rankings()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.transform"><code class="docutils literal notranslate"><span class="pre">RankAggregatedFS.transform()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-deepfastmlu.model_search.PCCDNAS">Model Search Modules</a><ul>
+<li><a class="reference internal" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS"><code class="docutils literal notranslate"><span class="pre">PCCDNAS</span></code></a><ul>
+<li><a class="reference internal" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS.build"><code class="docutils literal notranslate"><span class="pre">PCCDNAS.build()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS.data_init"><code class="docutils literal notranslate"><span class="pre">PCCDNAS.data_init()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS.initialize_model_search"><code class="docutils literal notranslate"><span class="pre">PCCDNAS.initialize_model_search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-deepfastmlu.extra.data_helpers">Extra Modules</a><ul>
+<li><a class="reference internal" href="#deepfastmlu.extra.data_helpers.DataSubSampler"><code class="docutils literal notranslate"><span class="pre">DataSubSampler</span></code></a><ul>
+<li><a class="reference internal" href="#deepfastmlu.extra.data_helpers.DataSubSampler.create_miniature_dataset"><code class="docutils literal notranslate"><span class="pre">DataSubSampler.create_miniature_dataset()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deepfastmlu.extra.data_helpers.DatasetSplitter"><code class="docutils literal notranslate"><span class="pre">DatasetSplitter</span></code></a><ul>
+<li><a class="reference internal" href="#deepfastmlu.extra.data_helpers.DatasetSplitter.run"><code class="docutils literal notranslate"><span class="pre">DatasetSplitter.run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deepfastmlu.extra.plot_helpers.plot_confusion_matrix"><code class="docutils literal notranslate"><span class="pre">plot_confusion_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#deepfastmlu.extra.plot_helpers.plot_history_curves"><code class="docutils literal notranslate"><span class="pre">plot_history_curves()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">deepfastmlu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Deep Fast Machine Learning Utils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deep-fast-machine-learning-utils">
+<h1>Deep Fast Machine Learning Utils<a class="headerlink" href="#deep-fast-machine-learning-utils" title="Permalink to this heading"></a></h1>
+<p>Welcome to the deepfastmlu documentation!</p>
+<div class="toctree-wrapper compound">
+</div>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h3>
+<p>Official build at: <a class="reference external" href="https://github.com/fabprezja/deep-fast-machine-learning-utils">https://github.com/fabprezja/deep-fast-machine-learning-utils</a></p>
+</section>
+<section id="module-deepfastmlu.feature_select.AdaptiveVarianceThreshold">
+<span id="feature-selection-modules"></span><h3>Feature Selection Modules<a class="headerlink" href="#module-deepfastmlu.feature_select.AdaptiveVarianceThreshold" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AdaptiveVarianceThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>AdaptiveVarianceThreshold is a feature selector that dynamically determines a variance threshold based on the
+provided percentile of the feature variances. Features with a variance below this threshold are dropped.
+Traditional variance-based feature selection uses a fixed threshold, which is not optimal for all datasets.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>percentile (float): The percentile of the feature variances used to determine the threshold. A higher
+percentile will result in a higher threshold and potentially more features being dropped.</p>
+<p>variances (np.ndarray, optional): Holds the variances of each feature in the dataset. Calculated during the
+<cite>fit</cite> method.</p>
+<p>threshold (float, optional): The calculated variance threshold. Features with a variance below this value
+will be dropped during the <cite>transform</cite> method.</p>
+<p>indices_to_drop (np.ndarray, optional): After fitting and transforming, provides the indices of features
+that were dropped due to their variance.</p>
+<p>selector (VarianceThreshold, optional): An instance of Scikit-learn’s VarianceThreshold class, used to
+perform the feature selection based on the calculated threshold.</p>
+<p>verbose (bool): If set to True, prints additional information during the processing, such as the calculated
+variance threshold.</p>
+</dd>
+<dt>Args:</dt><dd><p>percentile (float, optional): The desired percentile of feature variances to use for determining the
+threshold. Defaults to 1.5.</p>
+<p>verbose (bool, optional): Whether to print additional information during processing. Defaults to False.</p>
+</dd>
+</dl>
+<p>…</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the variances and threshold, and fit the selector.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>features (np.array): The feature set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.fit_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Call the fit and transform methods successively.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>features (np.array): The feature set.
+y (np.array, optional): Target values. This parameter is included for compatibility with scikit-learn’s
+transformer API but is not used in this method.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.array: The transformed feature set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.feature_select.AdaptiveVarianceThreshold.AdaptiveVarianceThreshold.transform" title="Permalink to this definition"></a></dt>
+<dd><p>Apply the selector to the features and store the indices of the dropped features.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>features (np.array): The feature set.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.array: The transformed feature set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-deepfastmlu.feature_select.ChainedFS"></span><dl class="py class">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.ChainedFS.ChainedFS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChainedFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ChainedFS is a feature selector that sequentially applies a list of feature selection methods. This class allows
+for the chaining of multiple feature selection methods, where the output of one method becomes the input for the
+next. This can be particularly useful when one wants to combine the strengths of different feature selection
+techniques or when a sequence of operations is required to refine the feature set.</p>
+<p>For instance, one might first want to use a variance threshold to remove low-variance features and then apply
+a more computationally intensive method on the reduced set.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>methods (List[Any]): A list of feature selection methods to be applied in sequence. Each method should have
+<cite>fit</cite> and <cite>transform</cite> methods. The order of the list determines the order of application of the methods.</p>
+<p><a href="#id1"><span class="problematic" id="id2">indices_</span></a> (np.ndarray): After fitting, provides the indices of features retained after all methods are applied.</p>
+</dd>
+<dt>Args:</dt><dd><p>methods (List[Any], optional): Feature selection methods to apply in sequence. Defaults to an empty list.</p>
+</dd>
+</dl>
+<p>…</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.ChainedFS.ChainedFS.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Fit the ChainedFS to the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X (np.ndarray): Training data.
+y (np.ndarray, optional): Target values. Defaults to None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.ChainedFS.ChainedFS.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS.fit_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X (np.ndarray): Training data.
+y (np.ndarray, optional): Target values. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.ndarray: Transformed data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.ChainedFS.ChainedFS.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#deepfastmlu.feature_select.ChainedFS.ChainedFS.transform" title="Permalink to this definition"></a></dt>
+<dd><p>Transform data based on the sequence of methods applied.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X (np.ndarray): Data to transform.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.ndarray: Transformed data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-deepfastmlu.feature_select.RankAggregatedFS"></span><dl class="py class">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RankAggregatedFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>RankAggregatedFS is a feature selector that aggregates the rankings of features from multiple feature selection
+methods. It combines the scores or rankings of features from different methods to provide a unified ranking of
+features. This approach can be useful when there’s uncertainty about which feature selection method to use, as
+it combines the strengths of multiple methods.</p>
+<dl>
+<dt>Attributes:</dt><dd><p><a href="#id3"><span class="problematic" id="id4">ranking_</span></a> (np.ndarray): After fitting, provides the indices of features ranked based on their aggregated scores.
+<a href="#id5"><span class="problematic" id="id6">aggregated_scores_</span></a> (np.ndarray): After fitting, provides the aggregated scores of features.</p>
+</dd>
+<dt>Args:</dt><dd><p>methods (List[Any], optional): A list of feature selection methods to aggregate. Each method should have a
+<cite>fit</cite> method and either provide a <cite>scores_</cite> attribute after fitting or be compatible with the <cite>transform</cite>
+method. Defaults to an empty list.</p>
+<p>k (int): The number of top-ranked features to select after aggregation. Features are ranked based on their
+aggregated scores, and the top <cite>k</cite> features are selected.</p>
+<p>weights (Optional[List[float]], optional): If provided, assigns weights to the feature selection methods. This
+can be used to give more importance to certain methods over others. If None, all methods are equally weighted.</p>
+</dd>
+</dl>
+<p>…</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS" title="deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS"><span class="pre">RankAggregatedFS</span></a></span></span><a class="headerlink" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Fit the RankAggregatedFS to the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X (np.ndarray): Training data.
+y (np.ndarray, optional): Target values. Defaults to None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.fit_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X (np.ndarray): Training data.
+y (np.ndarray, optional): Target values. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.ndarray: Transformed data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.get_feature_rankings">
+<span class="sig-name descname"><span class="pre">get_feature_rankings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.get_feature_rankings" title="Permalink to this definition"></a></dt>
+<dd><p>Return features ranked by their aggregated scores.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>np.ndarray: Features ranked by their aggregated scores.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#deepfastmlu.feature_select.RankAggregatedFS.RankAggregatedFS.transform" title="Permalink to this definition"></a></dt>
+<dd><p>Transform data to retain only the selected features.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X (np.ndarray): Data to transform.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.ndarray: Transformed data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-deepfastmlu.model_search.PCCDNAS">
+<span id="model-search-modules"></span><h3>Model Search Modules<a class="headerlink" href="#module-deepfastmlu.model_search.PCCDNAS" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="deepfastmlu.model_search.PCCDNAS.PCCDNAS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PCCDNAS</span></span><a class="headerlink" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Principal Component Cascade Dense Neural Architecture Search (PCCDNAS).</p>
+<p>PCCDNAS provides an automated method for designing neural networks. Using PCA
+(Principal Component Analysis), it systematically sets the number of neurons
+in each layer of the network. After applying PCA to the initial data, the
+neuron count for the first layer is determined based on the principal components
+(PCs) for a given variance threshold. Subsequently, the cascade mechanism ensures
+that the activations from each trained layer undergo PCA again. This process,
+in turn, determines the neuron count for the subsequent layers using the same
+principal component variance threshold criteria.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.model_search.PCCDNAS.PCCDNAS.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS.build" title="Permalink to this definition"></a></dt>
+<dd><p>Builds and trains the complete neural network model based on the PCA specification
+and the specified hyperparameters.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>tuple: A tuple containing the trained Keras model and a list of the number of neurons
+for each layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.model_search.PCCDNAS.PCCDNAS.data_init">
+<span class="sig-name descname"><span class="pre">data_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS.data_init" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize data for searching the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X_train (ndarray): Training data.
+y_train (ndarray): Training labels/targets.
+validation (float, tuple, optional): Validation data. Can be a percentage (float) or a tuple (X_val, y_val).
+normalize (bool, optional): Whether to normalize the data or not. Default is True.
+unit (bool, optional): If True, standard deviation is used for normalization. Default is False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.model_search.PCCDNAS.PCCDNAS.initialize_model_search">
+<span class="sig-name descname"><span class="pre">initialize_model_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.model_search.PCCDNAS.PCCDNAS.initialize_model_search" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the model’s hyperparameters based on provided keyword arguments.</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>All parameters are passed as keyword arguments.</p>
+</dd>
+<dt>Args:</dt><dd><p>epochs (int, optional): Number of training epochs. Default is 15.
+layers (int, optional): Number of layers in the model. Default is 2.
+activation (str, optional): Activation function for the layers. Default is ‘elu’.
+pca_variance (float or list of float, optional): Desired explained variance for PCA. Default is 0.95.
+loss (str, optional): Loss function for the model. Default is ‘categorical_crossentropy’.
+optimizer (str, optional): Optimizer for the model. Default is ‘adam’.
+metrics (list, optional): List of metrics to be evaluated. Default is [‘accuracy’].
+output_neurons (int, optional): Number of neurons in the output layer. Default is 1.
+out_activation (str, optional): Activation function for the output layer. Default is ‘sigmoid’.
+stop_criteria (str, optional): Criteria for early stopping. Default is ‘val_loss’.
+es_mode (str, optional): Mode for early stopping. Default is ‘max’.
+dropout (float, optional): Dropout rate for dropout layers (includes). Default is None.
+regularize (tuple (str, float), optional): Regularization type and value. Default is None.
+batch_size (int, optional): Batch size for training. Default is 32.
+kernel_initializer (str, optional): Kernel initializer for the dense layers. Default is ‘he_normal’.
+batch_norm (bool, optional): Whether to include batch normalization layers. Default is True.
+es_patience (int, optional): Number of epochs with no improvement for early stopping. Default is 5.
+verbose (int, optional): Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch. Default is 1.
+custom_callback (callback, optional): Custom callback for training. Default is None.
+learn_rate (float, optional): Learning rate for the optimizer. Default is 0.0001.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-deepfastmlu.extra.data_helpers">
+<span id="extra-modules"></span><h3>Extra Modules<a class="headerlink" href="#module-deepfastmlu.extra.data_helpers" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="deepfastmlu.extra.data_helpers.DataSubSampler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSubSampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fraction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.extra.data_helpers.DataSubSampler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>DataSubSampler class for creating a smaller dataset by randomly sampling a fraction of files from the original dataset.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>data_dir (str): Directory containing the original dataset.
+destination_dir (str): Directory where the sampled dataset will be saved.
+fraction (float): Fraction of files to sample from the original dataset.
+seed (int): Seed for random number generator.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.extra.data_helpers.DataSubSampler.create_miniature_dataset">
+<span class="sig-name descname"><span class="pre">create_miniature_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.extra.data_helpers.DataSubSampler.create_miniature_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a copy of all folders and subfolders in the path, but only samples a fraction of files.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="deepfastmlu.extra.data_helpers.DatasetSplitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DatasetSplitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_ratio_2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.extra.data_helpers.DatasetSplitter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>DatasetSplitter class for splitting a dataset into train, validation, and test sets.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>data_dir (str): Directory containing the dataset.
+destination_dir (str): Directory where the train, validation, and test sets will be saved.
+train_ratio (float): Ratio of train set.
+val_ratio (float): Ratio of validation set.
+test_ratio (float): Ratio of test set.
+test_ratio_2 (float): Ratio of an additional test set, if needed.
+seed (int): Seed for random number generator.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="deepfastmlu.extra.data_helpers.DatasetSplitter.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.extra.data_helpers.DatasetSplitter.run" title="Permalink to this definition"></a></dt>
+<dd><p>Main method to execute dataset splitting and copying files.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-deepfastmlu.extra.plot_helpers"></span><dl class="py function">
+<dt class="sig sig-object py" id="deepfastmlu.extra.plot_helpers.plot_confusion_matrix">
+<span class="sig-name descname"><span class="pre">plot_confusion_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.extra.plot_helpers.plot_confusion_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the confusion matrix of the model predictions on a given dataset.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model (Model): A trained Keras model.
+generator (ImageDataGenerator): A Keras ImageDataGenerator.
+generator_name (str): Name of the generator, used in the plot title.
+target_type (str): Type of target labels (‘binary’ or ‘categorical’).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deepfastmlu.extra.plot_helpers.plot_history_curves">
+<span class="sig-name descname"><span class="pre">plot_history_curves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_min_max_plot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_metric</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deepfastmlu.extra.plot_helpers.plot_history_curves" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the training and validation loss and user-specified metric curves.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>history (History): Keras training history object.
+show_min_max_plot (bool): Whether to plot the maximum/minimum value lines.
+user_metric (str): User-specified metric to be plotted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fabi Prezja.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
