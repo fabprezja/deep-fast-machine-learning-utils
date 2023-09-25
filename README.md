@@ -139,7 +139,7 @@ print("Number of neurons in each layer:", num_neurons)
 <a name="adaptivevariancethreshold"></a>
 ### Adaptive Variance Threshold (AVT)
 
-Adaptive Variance Threshold is a feature selector that dynamically determines a variance threshold based on the provided percentile of the feature variances. Features with a variance below this threshold are dropped. Traditional variance-based feature selection uses a fixed threshold, which is not optimal for all datasets.
+Adaptive Variance Threshold is a feature selector that dynamically determines a variance threshold based on the provided percentile of the feature variances. Features with a variance below this threshold are dropped. Traditional (non-zero) variance-based feature selection uses a dataset dependent manual threshold, which is not optimal between datasets.
 
 **Usage**:
 ```python
