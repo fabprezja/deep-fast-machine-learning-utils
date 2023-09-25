@@ -1,5 +1,5 @@
 # Deep Fast Machine Learning Utils
-![Deep Fast Machine Learning Utils Logo](https://github.com/fabprezja/vector-machine-learning-tools/assets/87379098/bbb1c02b-3464-4474-947e-e866d9fda8fe)
+![Deep Fast Machine Learning Utils Logo](https://github.com/fabprezja/deep-fast-machine-learning-utils/assets/87379098/19075a60-524c-472c-bae2-1f101167f907)
 
 Welcome to the Deep Fast Machine Learning Utils! This library is designed to streamline and expedite your machine learning prototyping process. It offers unique tools for model search and feature selection, which are not found in other ML libraries. The aim is to complement established libraries such as Tensorflow, Keras and Scikit-learn. Additionally, it provides extra tools for dataset management and visualization of training outcomes.
 
@@ -322,7 +322,7 @@ history = model.fit(X_train, y_train_onehot, validation_data=(X_val, y_val_oneho
 plot_history_curves(history, show_min_max_plot=True, user_metric='accuracy')
 ```
 Example result:<br>
-<img src="https://github.com/fabprezja/vector-machine-learning-tools/assets/87379098/d6020ec5-9f4f-49e4-8174-5ba70d9622a2" alt="confs2" width="500">
+<img src="https://github.com/fabprezja/deep-fast-machine-learning-utils/assets/87379098/bb7f0143-0fd9-428d-a312-f2e17f24d409" alt="confs2" width="500">
 
 <a name="plot-generator-confusion-matrix"></a>
 #### Plot Generator Confusion Matrix
