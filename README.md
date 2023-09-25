@@ -36,7 +36,7 @@ If you used the Adaptive Variance Threshold (AVT) class, please cite the followi
 ```shell
 Paper + Citation Comming Soon
 ```
-> **Note:** When referencing, please consider additional attributions to Tensorflow, Scikit-learn, and Keras, as our library is built around them.
+> **Note:** When referencing, please consider additional attributions to Tensorflow, Scikit-learn, and Keras, as the library is built around them.
 
 ## Table of Contents
 
